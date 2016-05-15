@@ -1,2 +1,2 @@
-class Actor < ActiveRecord::Base
+class Actor < Person
 end
