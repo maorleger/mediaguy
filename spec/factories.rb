@@ -15,9 +15,10 @@ FactoryGirl.define do
 
     factory :director, class: Director
     factory :writer, class: Writer
+    factory :actor, class: Actor
   end
 
   factory :movie do |m|
-
+    
   end
 end
