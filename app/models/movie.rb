@@ -1,4 +1,7 @@
 class Movie < ActiveRecord::Base
+  validates_presence_of :title, :source
+
+
   belongs_to :genre
   belongs_to :country
   #has_many :movies_people

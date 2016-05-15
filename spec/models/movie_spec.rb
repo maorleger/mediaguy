@@ -26,9 +26,17 @@ RSpec.describe Movie, type: :model do
     a1 = create(:actor)
     a2 = create(:actor)
     w1 = create(:writer)
-    m = create(:movie, actors: [a1, a2], writers: [w1])
+    m = create(:movie, actors: [a1, a2], writers: [w1], directors: [])
     expect(m.actors).to eq([a1, a2])
     expect(m.writers).to eq([w1])
     expect(m.directors).to eq([])
+  end
+
+  it 'is invalid without a title' do
+    expect(build_stubbed(:movie, title: nil)).not_to be_valid
+  end
+
+  it 'is invalid without a source' do
+    expect(build_stubbed(:movie, source: nil)).not_to be_valid
   end
 end
