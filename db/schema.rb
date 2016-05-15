@@ -26,11 +26,6 @@ ActiveRecord::Schema.define(version: 20160515052608) do
     t.datetime "updated_at",             null: false
   end
 
-  create_table "movie_people", id: false, force: :cascade do |t|
-    t.integer "movie_id",  limit: 4
-    t.integer "person_id", limit: 4
-  end
-
   create_table "movies", force: :cascade do |t|
     t.string   "title",       limit: 255
     t.integer  "year",        limit: 4
