@@ -12,6 +12,7 @@ default: &default
   username: <%= ENV['MYSQL_USERNAME'] %>
   password: <%= ENV['MYSQL_PASSWORD'] %>
   host: localhost
+  post: 3306
 
 development:
   <<: *default
@@ -26,4 +27,4 @@ test:
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  database: mediaguy_prod
