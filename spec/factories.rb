@@ -19,6 +19,6 @@ FactoryGirl.define do
   end
 
   factory :movie do |m|
-    
+
   end
 end
