@@ -11,13 +11,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160514231319) do
+ActiveRecord::Schema.define(version: 20160514235359) do
+
+  create_table "countries", force: :cascade do |t|
+    t.string   "code"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "genres", force: :cascade do |t|
     t.string   "genre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "movies", force: :cascade do |t|
+    t.string   "title"
+    t.integer  "year"
+    t.string   "rated"
+    t.date     "released"
+    t.integer  "runtime"
+    t.integer  "genre_id"
+    t.text     "plot"
+    t.integer  "country_id"
+    t.integer  "metascore"
+    t.integer  "ImdbRating"
+    t.integer  "ImdbVotes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "type"
+  end
+
+  add_index "movies", ["country_id"], name: "index_movies_on_country_id"
+  add_index "movies", ["genre_id"], name: "index_movies_on_genre_id"
 
   create_table "people", force: :cascade do |t|
     t.string   "first_name"

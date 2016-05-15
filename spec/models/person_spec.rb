@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Person, type: :model do
   it 'has a valid factory' do
-    expect(create(:person)).to be_valid
+    expect(build_stubbed(:person)).to be_valid
   end
 
   it 'is invalid without a first name' do

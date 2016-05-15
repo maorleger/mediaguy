@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Genre, type: :model do
   it 'has a valid factory' do
-    expect(create(:genre)).to be_valid
+    expect(build_stubbed(:genre)).to be_valid
   end
 
   it 'is invalid without a genre' do
