@@ -20,4 +20,15 @@ RSpec.describe Movie, type: :model do
     actor2 = build_stubbed(:actor)
     expect(create(:movie, actors: [actor1, actor2]).actors).to eq([actor1, actor2])
   end
+
+
+  it 'handles filtering by type on join tables' do
+    a1 = create(:actor)
+    a2 = create(:actor)
+    w1 = create(:writer)
+    m = create(:movie, actors: [a1, a2], writers: [w1])
+    expect(m.actors).to eq([a1, a2])
+    expect(m.writers).to eq([w1])
+    expect(m.directors).to eq([])
+  end
 end

@@ -10,8 +10,9 @@ class CreateMovies < ActiveRecord::Migration
       t.text :plot
       t.references :country, index: true, foreign_key: true
       t.integer :metascore
-      t.integer :ImdbRating
-      t.integer :ImdbVotes
+      t.integer :imdb_rating
+      t.integer :imdb_votes
+      t.string :type
 
       t.timestamps null: false
     end
