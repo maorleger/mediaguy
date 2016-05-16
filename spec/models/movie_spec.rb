@@ -39,4 +39,12 @@ RSpec.describe Movie, type: :model do
   it 'is invalid without a source' do
     expect(build_stubbed(:movie, source: nil)).not_to be_valid
   end
+
+  it 'details excludes title' do
+    expect(build_stubbed(:movie).details).not_to include("title" => a_string_matching(/.*/))
+  end
+
+  it 'details exclude id' do
+    expect(build_stubbed(:movie).details).not_to include("id" => a_value > 0)
+  end
 end

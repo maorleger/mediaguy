@@ -4,6 +4,10 @@
       <%= link_to "Show more", "#", :class => "show-more", :data => {:id => movie.id } %>
     </div>
     <div class="well well-hidden" id=<%= "movie-details-#{movie.id}" %>>
-      hi!
+      <ul>
+        <% movie.details.each do |k, v| %>
+          <li><%= k %>: <%= v %></li>
+        <%end%>
+      </ul>
     </div>
 <% end %>
