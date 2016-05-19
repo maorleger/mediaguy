@@ -9,5 +9,6 @@ RSpec.describe 'movies/index.html.erb', type: :view do
     render
 
     expect(rendered).to include(@movie1.title, @movie2.title)
+
   end
 end
