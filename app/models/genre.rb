@@ -1,5 +1,5 @@
 class Genre < ActiveRecord::Base
-  validates_presence_of :genre
+  validates :genre, presence: true
 
   def to_s
     genre

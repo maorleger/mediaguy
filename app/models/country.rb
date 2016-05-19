@@ -1,6 +1,5 @@
 class Country < ActiveRecord::Base
-  validates_presence_of :code, :description
-
+  validates :code, :description, presence: true
   def to_s
     code
   end

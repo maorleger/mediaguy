@@ -1,5 +1,5 @@
 class Movie < ActiveRecord::Base
-  validates_presence_of :title, :source
+  validates :title, :source, presence: true
 
   belongs_to :genre
   belongs_to :country

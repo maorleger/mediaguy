@@ -1,5 +1,5 @@
 class Person < ActiveRecord::Base
-  validates_presence_of :first_name, :last_name
+  validates :first_name, :last_name, presence: true
   has_and_belongs_to_many :movies
 
   def to_s

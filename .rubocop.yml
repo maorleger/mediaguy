@@ -1,0 +1,26 @@
+AllCops:
+  Exclude:
+    - 'vendor/**/*'
+    - 'spec/fixtures/**/*'
+    - 'tmp/**/*'
+    - 'bin/**/*'
+    - 'db/migrate/*'
+  TargetRubyVersion: 2.3
+
+Metrics/LineLength:
+  Max: 150
+
+Rails:
+  Enabled: true
+
+Rails/HasAndBelongsToMany:
+  Enabled: false # TODO: fix me
+
+Style/Encoding:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: always
+  Enabled: false
+
+
