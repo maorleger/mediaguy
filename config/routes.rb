@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
-  get 'home/index'
-
-  get 'movies/index'
   root 'home#index'
 
-  resource :movies
+  resources :movies
+  resources :home
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your
