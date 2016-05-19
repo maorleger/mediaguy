@@ -21,7 +21,6 @@ RSpec.describe Movie, type: :model do
     expect(create(:movie, actors: [actor1, actor2]).actors).to eq([actor1, actor2])
   end
 
-
   it 'handles filtering by type on join tables' do
     a1 = create(:actor)
     a2 = create(:actor)
@@ -41,10 +40,10 @@ RSpec.describe Movie, type: :model do
   end
 
   it 'details excludes title' do
-    expect(build_stubbed(:movie).details).not_to include("title" => a_string_matching(/.*/))
+    expect(build_stubbed(:movie).details).not_to include('title' => a_string_matching(/.*/))
   end
 
   it 'details exclude id' do
-    expect(build_stubbed(:movie).details).not_to include("id" => a_value > 0)
+    expect(build_stubbed(:movie).details).not_to include('id' => a_value > 0)
   end
 end

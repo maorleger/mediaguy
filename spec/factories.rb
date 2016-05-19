@@ -21,9 +21,9 @@ FactoryGirl.define do
   factory :movie do |m|
     m.title { Faker::Book.title }
     m.year { 2016 }
-    m.rated { ["PG", "R", "NC17" ].sample }
+    m.rated { %w(PG R NC17).sample }
     m.released { Faker::Date.between(2.years.ago, 2.years.from_now) }
-    m.runtime { rand(1..120)  }
+    m.runtime { rand(1..120) }
     m.genre { create(:genre) }
     m.plot { Faker::Hipster.sentence }
     m.country { create(:country) }

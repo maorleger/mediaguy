@@ -1,9 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe MoviesController, type: :controller do
-
   describe 'GET #index' do
-
     before do
       @movie = create(:movie)
     end
@@ -14,7 +12,7 @@ RSpec.describe MoviesController, type: :controller do
     end
 
     it 'is called when visiting route' do
-      expect(get: root_url).to route_to("movies#index")
+      expect(get: root_url).to route_to('movies#index')
     end
 
     it 'gets all local movies' do
@@ -22,7 +20,5 @@ RSpec.describe MoviesController, type: :controller do
       expect(assigns(:movies)).not_to be_nil
       expect(assigns(:movies)).to eq([@movie])
     end
-
   end
-
 end
