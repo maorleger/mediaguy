@@ -16,6 +16,9 @@ Rails:
 Rails/HasAndBelongsToMany:
   Enabled: false # TODO: fix me
 
+Style/Documentation:
+  Enabled: false
+
 Style/Encoding:
   Enabled: false
 
