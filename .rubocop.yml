@@ -14,7 +14,7 @@ Rails:
   Enabled: true
 
 Rails/HasAndBelongsToMany:
-  Enabled: false # TODO: fix me
+  Enabled: false
 
 Style/Documentation:
   Enabled: false
