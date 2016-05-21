@@ -1,13 +1,29 @@
-<% @movies.each do |movie| %>
-    <div class="movie">
-      <%= movie.title %>
-      <%= link_to "Show more", "#", :class => "show-more", :data => {:id => movie.id } %>
-    </div>
-    <div class="well well-hidden" id=<%= "movie-details-#{movie.id}" %>>
-      <ul>
-        <% movie.details.each do |k, v| %>
-          <li><%= k %>: <%= v %></li>
-        <%end%>
-      </ul>
-    </div>
+<% if @movies %>
+
+  <table id="movies" class="table table-striped table-bordered" cellspacing="0" width="100%">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @movies.each do |movie| %>
+        <tr>
+          <td>
+            <%= link_to movie.title, "#", :class => "show-more", :data => {:id => movie.id } %>
+          </td>
+          <td>
+            <div class="well well-hidden" id=<%= "movie-details-#{movie.id}" %>>
+              <ul>
+                <% movie.details.each do |k, v| %>
+                  <li><%= k %>: <%= v %></li>
+                <% end %>
+              </ul>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+  </table>
 <% end %>
