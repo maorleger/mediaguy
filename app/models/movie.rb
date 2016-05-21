@@ -11,12 +11,18 @@ class Movie < ActiveRecord::Base
 
   def details
     simple_attrs = attributes.except('title', 'id', 'genre_id', 'country_id', 'created_at', 'updated_at')
-    simple_attrs.merge!({
-      :genre => genre.to_s,
-      :country => country.to_s,
-      :writers => writers.map {|writer| writer.to_s }.join(", "),
-      :directors => directors.map {|director| director.to_s }.join(", "),
-      :actors => actors.map {|actor| actor.to_s}.join(", ")
-    })
+    add_relations(simple_attrs)
+  end
+
+  private
+
+  def add_relations(attributes)
+    attributes.merge!(
+      genre: genre.to_s,
+      country: country.to_s,
+      writers: writers.map(&:to_s).join(', '),
+      directors: directors.map(&:to_s).join(', '),
+      actors: actors.map(&:to_s).join(', ')
+    )
   end
 end
