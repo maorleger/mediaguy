@@ -10,6 +10,13 @@ class Movie < ActiveRecord::Base
   has_and_belongs_to_many :actors, association_foreign_key: :person_id, class_name: 'Actor'
 
   def details
-    attributes.except('title', 'id')
+    simple_attrs = attributes.except('title', 'id', 'genre_id', 'country_id', 'created_at', 'updated_at')
+    simple_attrs.merge!({
+      :genre => genre.to_s,
+      :country => country.to_s,
+      :writers => writers.map {|writer| writer.to_s }.join(", "),
+      :directors => directors.map {|director| director.to_s }.join(", "),
+      :actors => actors.map {|actor| actor.to_s}.join(", ")
+    })
   end
 end
