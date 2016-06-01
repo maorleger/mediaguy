@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'search/search'
+
   root 'home#index'
 
   resources :movies
