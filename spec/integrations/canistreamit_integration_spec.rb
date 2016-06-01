@@ -20,17 +20,16 @@ RSpec.feature 'canistreamit' do
 
   it 'stream by default in availability' do
     results = client.search_and_query('goodfellas')[0]
-    expect(results).to include("availability")
-    expect(results["availability"]).to include("streaming")
-
+    expect(results).to include('availability')
+    expect(results['availability']).to include('streaming')
   end
 
   it 'allows you to pass in multiple options' do
-    results = client.search_and_query('goodfellas', ['streaming', 'rental', 'purchase', 'dvd'])[0]
-    expect(results).to include("availability")
-    expect(results["availability"]).to include("streaming")
-    expect(results["availability"]).to include("rental")
-    expect(results["availability"]).to include("purchase")
-    expect(results["availability"]).to include("dvd")
+    results = client.search_and_query('goodfellas', %w(streaming rental purchase dvd))[0]
+    expect(results).to include('availability')
+    expect(results['availability']).to include('streaming')
+    expect(results['availability']).to include('rental')
+    expect(results['availability']).to include('purchase')
+    expect(results['availability']).to include('dvd')
   end
 end
